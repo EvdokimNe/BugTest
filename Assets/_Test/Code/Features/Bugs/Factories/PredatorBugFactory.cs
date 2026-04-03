@@ -24,10 +24,6 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly BugSceneContainer _sceneContainer;
         private readonly BugPoolProvider _bugPoolProvider;
         private readonly IMovementStrategyFactory _movementStrategyFactory;
-        private readonly TargetSelectorService _targetSelectorService;
-        private readonly IResourceManager _resourceManager;
-        private readonly Contracts.IBugRegistry _bugRegistry;
-        private readonly BugConsumeService _bugConsumeService;
         private readonly AttachOptionalComponentsHelper _attachOptionalComponentsHelper;
         private readonly IObjectResolver _objectResolver;
 
@@ -41,20 +37,12 @@ namespace _Test.Code.Features.Bugs.Factories
             BugSceneContainer sceneContainer,
             BugPoolProvider bugPoolProvider,
             IMovementStrategyFactory movementStrategyFactory,
-            TargetSelectorService targetSelectorService,
-            IResourceManager resourceManager,
-            Contracts.IBugRegistry bugRegistry,
-            BugConsumeService bugConsumeService,
             AttachOptionalComponentsHelper attachOptionalComponentsHelper,
             IObjectResolver objectResolver)
         {
             _sceneContainer = sceneContainer;
             _bugPoolProvider = bugPoolProvider;
             _movementStrategyFactory = movementStrategyFactory;
-            _targetSelectorService = targetSelectorService;
-            _resourceManager = resourceManager;
-            _bugRegistry = bugRegistry;
-            _bugConsumeService = bugConsumeService;
             _attachOptionalComponentsHelper = attachOptionalComponentsHelper;
             _objectResolver = objectResolver;
         }

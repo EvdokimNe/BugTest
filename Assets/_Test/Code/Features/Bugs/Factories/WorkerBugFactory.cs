@@ -23,10 +23,6 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly BugSceneContainer _sceneContainer;
         private readonly BugPoolProvider _bugPoolProvider;
         private readonly IMovementStrategyFactory _movementStrategyFactory;
-        private readonly TargetSelectorService _targetSelectorService;
-        private readonly IResourceManager _resourceManager;
-        private readonly Contracts.IBugRegistry _bugRegistry;
-        private readonly BugConsumeService _bugConsumeService;
         private readonly IObjectResolver _objectResolver;
 
         private readonly BugSettings _defaultSettings = new BugSettings(
@@ -39,19 +35,11 @@ namespace _Test.Code.Features.Bugs.Factories
             BugSceneContainer sceneContainer,
             BugPoolProvider bugPoolProvider,
             IMovementStrategyFactory movementStrategyFactory,
-            TargetSelectorService targetSelectorService,
-            IResourceManager resourceManager,
-            Contracts.IBugRegistry bugRegistry,
-            BugConsumeService bugConsumeService,
             IObjectResolver objectResolver)
         {
             _sceneContainer = sceneContainer;
             _bugPoolProvider = bugPoolProvider;
             _movementStrategyFactory = movementStrategyFactory;
-            _targetSelectorService = targetSelectorService;
-            _resourceManager = resourceManager;
-            _bugRegistry = bugRegistry;
-            _bugConsumeService = bugConsumeService;
             _objectResolver = objectResolver;
         }
 
