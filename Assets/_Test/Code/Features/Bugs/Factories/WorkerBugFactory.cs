@@ -75,6 +75,7 @@ namespace _Test.Code.Features.Bugs.Factories
 
             var stateMachine = new BugStateMachine(stateContext, states);
             var agent = new BugAgentContainer(bugId, view, runtimeData, pool, stateContext, stateMachine);
+            //циклическая зависимость
             stateContext.Owner = agent;
             return agent;
         }
