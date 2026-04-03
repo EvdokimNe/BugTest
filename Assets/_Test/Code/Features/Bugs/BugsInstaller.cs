@@ -2,6 +2,7 @@ using _Test.Code.Features.Bugs.Contracts;
 using _Test.Code.Features.Bugs.Factories;
 using _Test.Code.Features.Bugs.Runtime;
 using _Test.Code.Features.Bugs.Scene;
+using _Test.Code.Features.Bugs.States;
 using _Test.Code.Features.Colony;
 using _Test.Code.Features.GameStats.BugDeath;
 using _Test.Code.Features.Movement.Contracts;
@@ -55,6 +56,9 @@ namespace _Test.Code.Features.Bugs
             builder.Register<WorkerBugFactory>(Lifetime.Singleton);
             builder.Register<PredatorBugFactory>(Lifetime.Singleton);
             builder.Register<AttachOptionalComponentsHelper>(Lifetime.Singleton);
+            
+            builder.Register<IdleState>(Lifetime.Transient);
+            builder.Register<EatingState>(Lifetime.Transient);
             
             builder.Register<BugSpawnService>(Lifetime.Singleton);
         }

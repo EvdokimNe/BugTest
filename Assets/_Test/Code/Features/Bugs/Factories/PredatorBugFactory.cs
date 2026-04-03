@@ -14,6 +14,7 @@ using _Test.Code.Features.Targeting.Selectors;
 using _Test.Code.Features.Targeting.Strategies;
 using _Test.Code.Shared;
 using UnityEngine;
+using VContainer;
 
 namespace _Test.Code.Features.Bugs.Factories
 {
@@ -28,6 +29,7 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly Contracts.IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
         private readonly AttachOptionalComponentsHelper _attachOptionalComponentsHelper;
+        private readonly IObjectResolver _objectResolver;
 
         private readonly BugSettings _defaultSettings = new BugSettings(
             new BaseMoveData(MovementType.GroundXZ, 7f),
@@ -43,7 +45,8 @@ namespace _Test.Code.Features.Bugs.Factories
             IResourceManager resourceManager,
             Contracts.IBugRegistry bugRegistry,
             BugConsumeService bugConsumeService,
-            AttachOptionalComponentsHelper attachOptionalComponentsHelper)
+            AttachOptionalComponentsHelper attachOptionalComponentsHelper,
+            IObjectResolver objectResolver)
         {
             _sceneContainer = sceneContainer;
             _bugPoolProvider = bugPoolProvider;
@@ -53,6 +56,7 @@ namespace _Test.Code.Features.Bugs.Factories
             _bugRegistry = bugRegistry;
             _bugConsumeService = bugConsumeService;
             _attachOptionalComponentsHelper = attachOptionalComponentsHelper;
+            _objectResolver = objectResolver;
         }
 
         public BugAgentContainer Create(InternalIntId bugId, Vector3 position)
@@ -75,8 +79,8 @@ namespace _Test.Code.Features.Bugs.Factories
 
             var states = new List<IState>
             {
-                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService, eatingTargetSelector),
-                new IdleState()
+                _objectResolver.Resolve<EatingState>().SetupState(eatingTargetSelector),
+                _objectResolver.Resolve<IdleState>()
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);

@@ -13,7 +13,8 @@ namespace _Test.Code.Features.Bugs.States
         private readonly IResourceManager _resourceManager;
         private readonly IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
-        private readonly ITargetSelector _targetSelector;
+        
+        private ITargetSelector _targetSelector;
 
         private readonly EatingStateContext _stateContext = new();
 
@@ -21,15 +22,19 @@ namespace _Test.Code.Features.Bugs.States
             TargetSelectorService targetSelectorService,
             IResourceManager resourceManager,
             IBugRegistry bugRegistry,
-            BugConsumeService bugConsumeService, 
-            ITargetSelector targetSelector
+            BugConsumeService bugConsumeService
             )
         {
             _targetSelectorService = targetSelectorService;
             _resourceManager = resourceManager;
             _bugRegistry = bugRegistry;
             _bugConsumeService = bugConsumeService;
+        }
+
+        public EatingState SetupState(ITargetSelector targetSelector)
+        {
             _targetSelector = targetSelector;
+            return this;
         }
 
         public override bool ShouldBeActive()

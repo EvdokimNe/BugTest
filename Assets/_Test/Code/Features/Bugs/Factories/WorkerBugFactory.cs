@@ -14,6 +14,7 @@ using _Test.Code.Features.Targeting.Selectors;
 using _Test.Code.Features.Targeting.Strategies;
 using _Test.Code.Shared;
 using UnityEngine;
+using VContainer;
 namespace _Test.Code.Features.Bugs.Factories
 {
     //не совсем фабрика
@@ -26,6 +27,7 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly IResourceManager _resourceManager;
         private readonly Contracts.IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
+        private readonly IObjectResolver _objectResolver;
 
         private readonly BugSettings _defaultSettings = new BugSettings(
             new BaseMoveData(MovementType.GroundXZ, 5f),
@@ -40,7 +42,8 @@ namespace _Test.Code.Features.Bugs.Factories
             TargetSelectorService targetSelectorService,
             IResourceManager resourceManager,
             Contracts.IBugRegistry bugRegistry,
-            BugConsumeService bugConsumeService)
+            BugConsumeService bugConsumeService,
+            IObjectResolver objectResolver)
         {
             _sceneContainer = sceneContainer;
             _bugPoolProvider = bugPoolProvider;
@@ -49,6 +52,7 @@ namespace _Test.Code.Features.Bugs.Factories
             _resourceManager = resourceManager;
             _bugRegistry = bugRegistry;
             _bugConsumeService = bugConsumeService;
+            _objectResolver = objectResolver;
         }
 
         public BugAgentContainer Create(InternalIntId bugId, Vector3 position)
@@ -70,8 +74,8 @@ namespace _Test.Code.Features.Bugs.Factories
 
             var states = new List<IState>
             {
-                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService, eatingTargetSelector),
-                new IdleState()
+                _objectResolver.Resolve<EatingState>().SetupState(eatingTargetSelector),
+                _objectResolver.Resolve<IdleState>()
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
