@@ -1,11 +1,9 @@
 using System;
 using R3;
-using Test.Code.Features.Bugs.Runtime;
 using TMPro;
 using UnityEngine;
 using VContainer;
-
-namespace Test.Code.Features.Bugs.Scene
+namespace _Test.Code.Features.GameStats.BugDeath.View
 {
     public sealed class BugDeathCountersActiveView : MonoBehaviour
     {

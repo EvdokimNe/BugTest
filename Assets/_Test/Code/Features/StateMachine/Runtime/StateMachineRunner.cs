@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Test.Code.Features.StateMachine.Contracts;
-
-namespace Test.Code.Features.StateMachine.Runtime
+using _Test.Code.Features.StateMachine.Contracts;
+namespace _Test.Code.Features.StateMachine.Runtime
 {
     public sealed class StateMachineRunner
     {

@@ -1,6 +1,5 @@
-using Test.Code.Features.Targeting.Contracts;
-
-namespace Test.Code.Features.Targeting.Runtime
+using _Test.Code.Features.Targeting.Contracts;
+namespace _Test.Code.Features.Targeting.Strategies
 {
     public sealed class RandomTargetSelectionStrategy : ITargetSelectionStrategy
     {

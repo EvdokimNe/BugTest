@@ -1,16 +1,19 @@
-using _Test.Code.Features.CoreLoop;
-using Test.Code.Features.BugLifecycle.Runtime;
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.Bugs.Runtime.Targeting;
-using Test.Code.Features.Bugs.Scene;
-using Test.Code.Features.Movement.Contracts;
-using Test.Code.Features.Movement.Runtime;
-using Test.Code.Features.Targeting.Runtime;
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Factories;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.Scene;
+using _Test.Code.Features.Colony;
+using _Test.Code.Features.GameStats.BugDeath;
+using _Test.Code.Features.Movement.Contracts;
+using _Test.Code.Features.Movement.Runtime;
+using _Test.Code.Features.Split;
+using _Test.Code.Features.Split.Runtime;
+using _Test.Code.Features.Targeting;
+using _Test.Code.Features.Targeting.Collectors;
+using _Test.Code.Features.Targeting.Strategies;
 using UnityEngine;
 using VContainer;
-
-namespace Test.Code.Features.Bugs
+namespace _Test.Code.Features.Bugs
 {
     public sealed class BugsInstaller : MonoBehaviour
     {

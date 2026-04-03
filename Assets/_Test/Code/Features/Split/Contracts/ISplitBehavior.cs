@@ -1,4 +1,4 @@
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.Split.Contracts
 {
     public interface ISplitBehavior
     {

@@ -1,19 +1,20 @@
 using System.Collections.Generic;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Scene;
-using Test.Code.Features.Bugs.States;
-using Test.Code.Features.Movement.Contracts;
-using Test.Code.Features.ResourceSpawn.Contracts;
-using Test.Code.Features.StateMachine.Contracts;
-using Test.Code.Features.Targeting.Contracts;
-using Test.Code.Features.Targeting.Models;
-using Test.Code.Features.Targeting.Runtime.Collectors;
-using Test.Code.Features.Targeting.Runtime.Selectors;
-using Test.Code.Features.Targeting.Runtime;
-using Test.Code.Features.Movement.Models;
+using _Test.Code.Features.Bugs.Configs;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.States;
+using _Test.Code.Features.Movement.Contracts;
+using _Test.Code.Features.Movement.Models;
+using _Test.Code.Features.ResourceSpawn.Contracts;
+using _Test.Code.Features.StateMachine.Contracts;
+using _Test.Code.Features.Targeting;
+using _Test.Code.Features.Targeting.Collectors;
+using _Test.Code.Features.Targeting.Contracts;
+using _Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.Targeting.Selectors;
+using _Test.Code.Features.Targeting.Strategies;
 using UnityEngine;
-
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.Bugs.Factories
 {
     public sealed class WorkerBugFactory
     {
@@ -26,7 +27,7 @@ namespace Test.Code.Features.Bugs.Runtime
         private readonly BugConsumeService _bugConsumeService;
 
         private readonly BugSettings _settings = new(
-            new BaseMoveData(MovementType.GroundXZ, 10f),
+            new BaseMoveData(MovementType.GroundXZ, 5f),
             splitSatiety: 2,
             lifetimeSeconds: -1f,
             splitBehavior: new SplitWithMutationChance(10, 0.1f));

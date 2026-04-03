@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.Targeting.Contracts;
-using Test.Code.Features.Targeting.Models;
-using Test.Code.Features.Targeting.Runtime.Collectors;
-
-namespace Test.Code.Features.Bugs.Runtime.Targeting
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Targeting.Contracts;
+using _Test.Code.Features.Targeting.Models;
+namespace _Test.Code.Features.Targeting.Collectors
 {
     public sealed class BugTargetCollectorProcessor : ITargetCollectorProcessor
     {

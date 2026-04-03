@@ -1,6 +1,7 @@
-using Test.Code.Features.BugLifecycle.Runtime;
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Colony;
+using _Test.Code.Features.Split.Runtime;
 using VContainer.Unity;
 
 namespace _Test.Code.Features.CoreLoop

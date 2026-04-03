@@ -1,13 +1,12 @@
+using _Test.Code.Features.Bugs;
 using _Test.Code.Features.CoreLoop;
-using Test.Code.Features.Bugs;
-using Test.Code.Features.Bugs.Scene;
-using Test.Code.Features.ResourceSpawn;
-using Test.Code.Features.Timers;
+using _Test.Code.Features.GameStats.BugDeath.View;
+using _Test.Code.Features.ResourceSpawn;
+using _Test.Code.Features.Timers;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-
-namespace Test.Code
+namespace _Test.Code
 {
     public sealed class MainLifeTimeScope : LifetimeScope
     {

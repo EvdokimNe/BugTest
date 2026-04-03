@@ -1,6 +1,5 @@
-using Test.Code.Features.ResourceSpawn.Models;
-
-namespace Test.Code.Features.ResourceSpawn.Contracts
+using _Test.Code.Features.ResourceSpawn.Models;
+namespace _Test.Code.Features.ResourceSpawn.Contracts
 {
     public interface ISpawnZone
     {

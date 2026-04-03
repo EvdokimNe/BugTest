@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using Test.Code.Features.ResourceSpawn.Models;
-using Test.Code.Features.ResourceSpawn.Scene;
-using Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.ResourceSpawn.Models;
+using _Test.Code.Features.ResourceSpawn.Scene;
+using _Test.Code.Features.Targeting.Models;
 using UnityEngine;
 using uPools;
-
-namespace Test.Code.Features.ResourceSpawn.Contracts
+namespace _Test.Code.Features.ResourceSpawn.Contracts
 {
     public interface IResourceManager
     {

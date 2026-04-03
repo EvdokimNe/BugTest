@@ -1,6 +1,5 @@
-using Test.Code.Features.Targeting.Models;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Targeting.Models;
+namespace _Test.Code.Features.Bugs.States
 {
     public sealed class EatingStateContext
     {

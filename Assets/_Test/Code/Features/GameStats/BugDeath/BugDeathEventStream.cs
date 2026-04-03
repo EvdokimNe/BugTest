@@ -1,7 +1,6 @@
-using Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Models;
 using R3;
-
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.GameStats.BugDeath
 {
     public sealed class BugDeathEventStream
     {

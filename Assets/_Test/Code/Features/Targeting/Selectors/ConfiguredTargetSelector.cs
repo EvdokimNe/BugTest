@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Test.Code.Features.Targeting.Contracts;
-
-namespace Test.Code.Features.Targeting.Runtime.Selectors
+using _Test.Code.Features.Targeting.Contracts;
+namespace _Test.Code.Features.Targeting.Selectors
 {
     public sealed class ConfiguredTargetSelector : ITargetSelector
     {

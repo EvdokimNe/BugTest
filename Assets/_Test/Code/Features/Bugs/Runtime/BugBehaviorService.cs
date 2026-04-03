@@ -1,6 +1,5 @@
-using Test.Code.Features.Bugs.Contracts;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Bugs.Contracts;
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugBehaviorService
     {

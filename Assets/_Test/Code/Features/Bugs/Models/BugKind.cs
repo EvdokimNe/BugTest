@@ -1,6 +1,5 @@
 using System;
-
-namespace Test.Code.Features.Bugs.Models
+namespace _Test.Code.Features.Bugs.Models
 {
     [Flags]
     public enum BugKind

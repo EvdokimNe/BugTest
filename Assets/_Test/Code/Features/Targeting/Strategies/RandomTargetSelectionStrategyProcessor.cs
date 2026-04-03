@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.Targeting.Contracts;
-using Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Targeting.Contracts;
+using _Test.Code.Features.Targeting.Models;
 using Random = UnityEngine.Random;
 
-namespace Test.Code.Features.Targeting.Runtime
+namespace _Test.Code.Features.Targeting.Strategies
 {
     public sealed class RandomTargetSelectionStrategyProcessor : ITargetSelectionStrategyProcessor
     {

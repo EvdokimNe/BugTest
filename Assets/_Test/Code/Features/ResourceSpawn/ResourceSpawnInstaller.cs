@@ -1,11 +1,11 @@
-using Test.Code.Features.ResourceSpawn.Runtime;
-using Test.Code.Features.ResourceSpawn.Scene;
-using Test.Code.Features.ResourceSpawn.Services;
+using _Test.Code.Features.ResourceSpawn.Configs;
+using _Test.Code.Features.ResourceSpawn.Scene;
+using _Test.Code.Features.ResourceSpawn.Services;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Test.Code.Features.ResourceSpawn
+namespace _Test.Code.Features.ResourceSpawn
 {
     public sealed class ResourceSpawnInstaller : MonoBehaviour
     {

@@ -1,8 +1,7 @@
 using System;
-using Test.Code.Features.Timers.Contracts;
+using _Test.Code.Features.Timers.Contracts;
 using UnityEngine;
-
-namespace Test.Code.Features.Timers.Runtime
+namespace _Test.Code.Features.Timers
 {
     public sealed class Timer : ITimer, IDisposable
     {

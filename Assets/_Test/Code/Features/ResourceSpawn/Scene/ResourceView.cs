@@ -1,8 +1,6 @@
-using Test.Code.Features.ResourceSpawn.Models;
-using Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.Targeting.Models;
 using UnityEngine;
-
-namespace Test.Code.Features.ResourceSpawn.Scene
+namespace _Test.Code.Features.ResourceSpawn.Scene
 {
     public sealed class ResourceView : MonoBehaviour
     {

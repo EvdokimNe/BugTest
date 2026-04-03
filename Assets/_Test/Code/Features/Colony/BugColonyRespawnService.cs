@@ -1,8 +1,8 @@
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Runtime;
 using UnityEngine;
 
-namespace Test.Code.Features.BugLifecycle.Runtime
+namespace _Test.Code.Features.Colony
 {
     public sealed class BugColonyRespawnService
     {

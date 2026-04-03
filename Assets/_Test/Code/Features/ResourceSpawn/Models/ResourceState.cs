@@ -1,4 +1,4 @@
-namespace Test.Code.Features.ResourceSpawn.Models
+namespace _Test.Code.Features.ResourceSpawn.Models
 {
     public enum ResourceState
     {

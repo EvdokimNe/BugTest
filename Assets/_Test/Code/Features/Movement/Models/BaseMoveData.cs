@@ -1,4 +1,4 @@
-namespace Test.Code.Features.Movement.Models
+namespace _Test.Code.Features.Movement.Models
 {
     public class BaseMoveData
     {

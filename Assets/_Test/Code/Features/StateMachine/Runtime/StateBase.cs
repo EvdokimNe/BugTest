@@ -1,6 +1,5 @@
-using Test.Code.Features.StateMachine.Contracts;
-
-namespace Test.Code.Features.StateMachine.Runtime
+using _Test.Code.Features.StateMachine.Contracts;
+namespace _Test.Code.Features.StateMachine.Runtime
 {
     public abstract class StateBase<TContext> : IState where TContext : class, IStateContext
     {

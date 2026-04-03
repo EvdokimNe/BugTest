@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-
-namespace Test.Code.Features.Targeting.Contracts
+namespace _Test.Code.Features.Targeting.Contracts
 {
     public interface ITargetSelector
     {

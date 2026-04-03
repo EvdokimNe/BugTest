@@ -1,8 +1,7 @@
-using Test.Code.Features.Movement.Contracts;
-using Test.Code.Features.Movement.Models;
+using _Test.Code.Features.Movement.Contracts;
+using _Test.Code.Features.Movement.Models;
 using UnityEngine;
-
-namespace Test.Code.Features.Movement.Runtime
+namespace _Test.Code.Features.Movement.Runtime
 {
     public sealed class GroundXZMovementStrategy : IMovementStrategy
     {

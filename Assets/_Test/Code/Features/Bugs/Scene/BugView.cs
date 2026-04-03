@@ -1,8 +1,6 @@
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.Bugs.Models;
 using UnityEngine;
-
-namespace Test.Code.Features.Bugs.Scene
+namespace _Test.Code.Features.Bugs.Scene
 {
     public sealed class BugView : MonoBehaviour
     {

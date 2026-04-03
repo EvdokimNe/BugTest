@@ -1,10 +1,10 @@
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Scene;
-using Test.Code.Features.Targeting.Contracts;
-using Test.Code.Features.Targeting.Models;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Scene;
+using _Test.Code.Features.Bugs.States;
+using _Test.Code.Features.Targeting.Contracts;
+using _Test.Code.Features.Targeting.Models;
 using uPools;
-
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugAgent
     {

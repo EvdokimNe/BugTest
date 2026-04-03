@@ -1,11 +1,10 @@
-using Test.Code.Features.ResourceSpawn.Contracts;
-using Test.Code.Features.ResourceSpawn.Models;
-using Test.Code.Features.ResourceSpawn.Runtime;
-using Test.Code.Features.ResourceSpawn.Scene;
-using Test.Code.Features.Timers.Contracts;
+using _Test.Code.Features.ResourceSpawn.Configs;
+using _Test.Code.Features.ResourceSpawn.Contracts;
+using _Test.Code.Features.ResourceSpawn.Models;
+using _Test.Code.Features.ResourceSpawn.Scene;
+using _Test.Code.Features.Timers.Contracts;
 using VContainer.Unity;
-
-namespace Test.Code.Features.ResourceSpawn.Services
+namespace _Test.Code.Features.ResourceSpawn.Services
 {
     public sealed class ResourceSpawnManager : IResourceSpawner, ITickable
     {

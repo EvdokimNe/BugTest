@@ -1,8 +1,6 @@
-using Test.Code.Features.Movement.Models;
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.Targeting.Contracts;
-
-namespace Test.Code.Features.Bugs.Models
+using _Test.Code.Features.Bugs.Configs;
+using _Test.Code.Features.Targeting.Contracts;
+namespace _Test.Code.Features.Bugs.Models
 {
     public sealed class RuntimeData
     {

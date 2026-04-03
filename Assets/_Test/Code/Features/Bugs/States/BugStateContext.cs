@@ -1,9 +1,9 @@
-using Test.Code.Features.Bugs.Scene;
-using Test.Code.Features.Movement.Contracts;
-using Test.Code.Features.StateMachine.Contracts;
-using Test.Code.Features.StateMachine.Runtime;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.Scene;
+using _Test.Code.Features.Movement.Contracts;
+using _Test.Code.Features.StateMachine.Contracts;
+using _Test.Code.Features.StateMachine.Runtime;
+namespace _Test.Code.Features.Bugs.States
 {
     public sealed class BugStateContext : IStateContext, IStateAccessor
     {

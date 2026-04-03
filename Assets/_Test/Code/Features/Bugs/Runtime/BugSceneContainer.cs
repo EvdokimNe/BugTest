@@ -1,7 +1,6 @@
-using Test.Code.Features.Bugs.Scene;
+using _Test.Code.Features.Bugs.Scene;
 using UnityEngine;
-
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugSceneContainer
     {

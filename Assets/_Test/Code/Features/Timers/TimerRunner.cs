@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Test.Code.Features.Timers.Runtime;
 using VContainer.Unity;
-
-namespace Test.Code.Features.Timers
+namespace _Test.Code.Features.Timers
 {
     public sealed class TimerRunner : ITickable
     {

@@ -1,8 +1,6 @@
-using Test.Code.Features.Timers.Contracts;
-using Test.Code.Features.Timers.Runtime;
+using _Test.Code.Features.Timers.Contracts;
 using VContainer;
-
-namespace Test.Code.Features.Timers
+namespace _Test.Code.Features.Timers
 {
     public sealed class TimerInstaller
     {

@@ -1,8 +1,7 @@
-using Test.Code.Features.ResourceSpawn.Contracts;
-using Test.Code.Features.ResourceSpawn.Models;
+using _Test.Code.Features.ResourceSpawn.Contracts;
+using _Test.Code.Features.ResourceSpawn.Models;
 using UnityEngine;
-
-namespace Test.Code.Features.ResourceSpawn.Scene
+namespace _Test.Code.Features.ResourceSpawn.Scene
 {
     public sealed class PlaneSpawnZoneAuthoring : MonoBehaviour, ISpawnZone
     {

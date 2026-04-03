@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
-
-namespace Test.Code.Features.BugLifecycle.Runtime
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Split.Contracts;
+namespace _Test.Code.Features.Split
 {
     public sealed class BugSplitResolverService
     {

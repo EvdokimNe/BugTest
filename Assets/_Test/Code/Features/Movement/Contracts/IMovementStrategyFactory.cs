@@ -1,6 +1,5 @@
-using Test.Code.Features.Movement.Models;
-
-namespace Test.Code.Features.Movement.Contracts
+using _Test.Code.Features.Movement.Models;
+namespace _Test.Code.Features.Movement.Contracts
 {
     public interface IMovementStrategyFactory
     {

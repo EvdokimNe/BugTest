@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Test.Code.Features.ResourceSpawn.Scene;
+using _Test.Code.Features.ResourceSpawn.Scene;
 using UnityEngine;
 using uPools;
-
-namespace Test.Code.Features.ResourceSpawn.Services
+namespace _Test.Code.Features.ResourceSpawn.Services
 {
     public sealed class ResourcePoolProvider
     {

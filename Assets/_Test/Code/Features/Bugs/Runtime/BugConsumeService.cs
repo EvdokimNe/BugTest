@@ -1,9 +1,8 @@
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.ResourceSpawn.Contracts;
-using Test.Code.Features.ResourceSpawn.Models;
-using Test.Code.Features.Targeting.Models;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.ResourceSpawn.Contracts;
+using _Test.Code.Features.ResourceSpawn.Models;
+using _Test.Code.Features.Targeting.Models;
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugConsumeService
     {

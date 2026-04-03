@@ -1,4 +1,4 @@
-namespace Test.Code.Features.StateMachine.Contracts
+namespace _Test.Code.Features.StateMachine.Contracts
 {
     public interface IStateContext
     {

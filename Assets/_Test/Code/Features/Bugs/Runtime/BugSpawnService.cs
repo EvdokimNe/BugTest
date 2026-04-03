@@ -1,8 +1,7 @@
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Factories;
 using UnityEngine;
-
-namespace Test.Code.Features.Bugs.Runtime
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugSpawnService
     {

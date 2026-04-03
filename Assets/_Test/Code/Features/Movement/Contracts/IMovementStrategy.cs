@@ -1,6 +1,5 @@
 using UnityEngine;
-
-namespace Test.Code.Features.Movement.Contracts
+namespace _Test.Code.Features.Movement.Contracts
 {
     public interface IMovementStrategy
     {

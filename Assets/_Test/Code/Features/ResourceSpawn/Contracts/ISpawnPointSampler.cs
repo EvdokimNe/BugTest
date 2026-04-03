@@ -1,7 +1,6 @@
-using Test.Code.Features.ResourceSpawn.Models;
+using _Test.Code.Features.ResourceSpawn.Models;
 using UnityEngine;
-
-namespace Test.Code.Features.ResourceSpawn.Contracts
+namespace _Test.Code.Features.ResourceSpawn.Contracts
 {
     public interface ISpawnPointSampler
     {

@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.Targeting.Contracts;
-using Test.Code.Features.Targeting.Models;
-
-namespace Test.Code.Features.Targeting.Runtime
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Targeting.Contracts;
+using _Test.Code.Features.Targeting.Models;
+namespace _Test.Code.Features.Targeting
 {
     public sealed class TargetSelectorService
     {

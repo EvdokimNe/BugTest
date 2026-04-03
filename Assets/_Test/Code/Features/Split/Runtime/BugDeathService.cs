@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
-
-namespace Test.Code.Features.BugLifecycle.Runtime
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Runtime;
+namespace _Test.Code.Features.Split.Runtime
 {
     public sealed class BugDeathService
     {

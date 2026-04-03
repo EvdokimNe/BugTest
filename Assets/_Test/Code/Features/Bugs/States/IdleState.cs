@@ -1,7 +1,5 @@
-using Test.Code.Features.Bugs.Runtime;
-using Test.Code.Features.StateMachine.Runtime;
-
-namespace Test.Code.Features.Bugs.States
+using _Test.Code.Features.StateMachine.Runtime;
+namespace _Test.Code.Features.Bugs.States
 {
     public sealed class IdleState : StateBase<BugStateContext>
     {

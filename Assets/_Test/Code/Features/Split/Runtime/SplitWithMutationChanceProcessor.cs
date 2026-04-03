@@ -1,10 +1,11 @@
 using System;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
-using UnityEngine;
+using _Test.Code.Features.Bugs.Configs;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Split.Contracts;
 using Random = UnityEngine.Random;
 
-namespace Test.Code.Features.BugLifecycle.Runtime
+namespace _Test.Code.Features.Split.Runtime
 {
     public sealed class SplitWithMutationChanceProcessor : ISplitProcessor
     {

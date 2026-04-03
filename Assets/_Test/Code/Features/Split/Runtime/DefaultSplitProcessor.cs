@@ -1,8 +1,9 @@
 using System;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
-
-namespace Test.Code.Features.BugLifecycle.Runtime
+using _Test.Code.Features.Bugs.Configs;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Split.Contracts;
+namespace _Test.Code.Features.Split.Runtime
 {
     public sealed class DefaultSplitProcessor : ISplitProcessor
     {

@@ -1,9 +1,8 @@
 using _Test.Code.Features.CoreLoop;
-using Test.Code.Features.ResourceSpawn.Contracts;
+using _Test.Code.Features.ResourceSpawn.Contracts;
 using UnityEngine;
 using VContainer.Unity;
-
-namespace Test.Code
+namespace _Test.Code
 {
     public sealed class EntryPoint : IStartable
     {

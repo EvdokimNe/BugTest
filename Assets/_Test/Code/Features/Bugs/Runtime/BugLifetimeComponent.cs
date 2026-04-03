@@ -1,7 +1,6 @@
 using System;
-using Test.Code.Features.Timers.Contracts;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Timers.Contracts;
+namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugLifetimeComponent
     {

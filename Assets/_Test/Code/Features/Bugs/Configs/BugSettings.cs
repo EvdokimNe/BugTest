@@ -1,6 +1,6 @@
-using Test.Code.Features.Movement.Models;
-
-namespace Test.Code.Features.Bugs.Runtime
+using _Test.Code.Features.Movement.Models;
+using _Test.Code.Features.Split.Contracts;
+namespace _Test.Code.Features.Bugs.Configs
 {
     public sealed class BugSettings
     {

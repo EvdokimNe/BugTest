@@ -1,10 +1,8 @@
-using System.Collections.Generic;
-using Test.Code.Features.Bugs.Contracts;
-using Test.Code.Features.Bugs.Models;
-using Test.Code.Features.Bugs.Runtime;
+using _Test.Code.Features.Bugs.Contracts;
+using _Test.Code.Features.Bugs.Models;
+using _Test.Code.Features.Bugs.Runtime;
 using UnityEngine;
-
-namespace Test.Code.Features.BugLifecycle.Runtime
+namespace _Test.Code.Features.Split.Runtime
 {
     public sealed class BugSplitService
     {

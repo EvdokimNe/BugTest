@@ -1,4 +1,4 @@
-namespace Test.Code.Features.Timers.Contracts
+namespace _Test.Code.Features.Timers.Contracts
 {
     public interface ITimer
     {
