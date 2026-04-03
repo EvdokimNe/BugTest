@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2967ab65fd9a61d4db56af416096aed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test.Code.Features.ResourceSpawn.Scene.PlaneSpawnZoneAuthoring
-  _size: {x: 15, y: 30}
+  _size: {x: 50, y: 28}
   _yLevel: 0
 --- !u!4 &1616304433
 Transform:
