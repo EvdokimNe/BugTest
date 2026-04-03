@@ -10,13 +10,13 @@ using _Test.Code.Features.StateMachine.Contracts;
 using _Test.Code.Features.Targeting;
 using _Test.Code.Features.Targeting.Collectors;
 using _Test.Code.Features.Targeting.Contracts;
-using _Test.Code.Features.Targeting.Models;
 using _Test.Code.Features.Targeting.Selectors;
 using _Test.Code.Features.Targeting.Strategies;
 using _Test.Code.Shared;
 using UnityEngine;
 namespace _Test.Code.Features.Bugs.Factories
 {
+    //не совсем фабрика
     public sealed class WorkerBugFactory
     {
         private readonly BugSceneContainer _sceneContainer;
@@ -75,9 +75,7 @@ namespace _Test.Code.Features.Bugs.Factories
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agentContainer = new BugAgentContainer(bugId,BugKind.Worker, view, runtimeData, pool, stateContext, stateMachine);
-            
-            agentContainer.AttachSplitBehavior(_defaultSettings.SplitBehavior);
+            var agentContainer = new BugAgentContainer(bugId,BugKind.Worker, view, runtimeData, pool, stateContext, stateMachine, _defaultSettings.SplitBehavior);
             
             //циклическая зависимость
             stateContext.Owner = agentContainer;

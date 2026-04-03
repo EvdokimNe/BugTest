@@ -54,6 +54,8 @@ namespace _Test.Code.Features.Bugs
 
             builder.Register<WorkerBugFactory>(Lifetime.Singleton);
             builder.Register<PredatorBugFactory>(Lifetime.Singleton);
+            builder.Register<AttachOptionalComponentsHelper>(Lifetime.Singleton);
+            
             builder.Register<BugSpawnService>(Lifetime.Singleton);
         }
     }

@@ -19,16 +19,15 @@ namespace _Test.Code.Features.Bugs.Runtime
         public BugStateMachine StateMachine { get; }
         
         public BugLifetimeComponent LifetimeComponent { get; private set; }
-        public ISplitBehavior SplitBehavior { get; private set; }
+        public ISplitBehavior SplitBehavior { get; }
 
-        public BugAgentContainer(
-            InternalIntId id,
+        public BugAgentContainer(InternalIntId id,
             BugKind kind,
             BugView view,
             RuntimeData runtimeData,
             ObjectPool<BugView> pool,
             BugStateContext stateContext,
-            BugStateMachine stateMachine)
+            BugStateMachine stateMachine, ISplitBehavior splitBehavior)
         {
             Id = id;
             Kind = kind;
@@ -37,16 +36,12 @@ namespace _Test.Code.Features.Bugs.Runtime
             Pool = pool;
             StateContext = stateContext;
             StateMachine = stateMachine;
+            SplitBehavior = splitBehavior;
         }
         
         public void AttachLifetime(BugLifetimeComponent lifetimeComponent)
         {
             LifetimeComponent = lifetimeComponent;
-        }
-
-        public void AttachSplitBehavior(ISplitBehavior splitBehavior)
-        {
-            SplitBehavior = splitBehavior;
         }
     }
 }
