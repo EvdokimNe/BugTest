@@ -56,25 +56,25 @@ namespace _Test.Code.Features.Bugs.Factories
             var view = pool.Rent();
             view.transform.position = position;
 
-            var targetSelector = new ConfiguredTargetSelector(
+            var eatingTargetSelector = new ConfiguredTargetSelector(
                 new List<ITargetCollector>
                 {
                     new ResourceTargetCollector()
                 },
                 new RandomTargetSelectionStrategy());
 
-            var runtimeData = new RuntimeData(BugKind.Worker, _settings, targetSelector);
+            var runtimeData = new RuntimeData(BugKind.Worker, _settings);
             var movementStrategy = _movementStrategyFactory.Create(runtimeData.Settings.MoveData);
             var stateContext = new BugStateContext(view, runtimeData, movementStrategy);
 
             var states = new List<IState>
             {
-                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService),
+                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService, eatingTargetSelector),
                 new IdleState()
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agent = new BugAgentContainer(bugId, view, runtimeData, runtimeData.EatingTargetSelector, pool, null, stateContext, stateMachine);
+            var agent = new BugAgentContainer(bugId, view, runtimeData, pool, stateContext, stateMachine);
             stateContext.Owner = agent;
             return agent;
         }
