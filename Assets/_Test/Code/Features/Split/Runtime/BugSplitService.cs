@@ -49,7 +49,7 @@ namespace _Test.Code.Features.Split.Runtime
             var origin = bug.View.transform.position;
             var splitPositions = CreateSplitPositions(origin);
                 
-            _bugDespawnService.Despawn(bug.Id, publishDeathEvent: false);
+            _bugDespawnService.Despawn(bug.Id, realDeath: false);
 
             _bugSpawnService.SpawnByKind(firstChildKind, splitPositions.Item1);
             _bugSpawnService.SpawnByKind(secondChildKind, splitPositions.Item2);

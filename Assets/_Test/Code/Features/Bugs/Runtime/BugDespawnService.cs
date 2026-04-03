@@ -15,12 +15,12 @@ namespace _Test.Code.Features.Bugs.Runtime
             _deathEventStream = deathEventStream;
         }
 
-        public void Despawn(InternalIntId bugId, bool publishDeathEvent = true)
+        public void Despawn(InternalIntId bugId, bool realDeath = true)
         {
             if (!_bugRegistry.TryGet(bugId, out var bug))
                 return;
 
-            if (publishDeathEvent)
+            if (realDeath)
             {
                 _deathEventStream.BugDied.OnNext(bug.Kind);
             }
