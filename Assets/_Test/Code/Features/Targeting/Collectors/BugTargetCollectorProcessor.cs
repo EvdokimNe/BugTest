@@ -28,7 +28,7 @@ namespace _Test.Code.Features.Targeting.Collectors
                 if (!bug.RuntimeData.IsAlive || bug.Id.Equals(requester.Id))
                     continue;
 
-                if ((bugCollector.TargetKindsMask & bug.RuntimeData.Kind) == 0)
+                if ((bugCollector.TargetKindsMask & bug.Kind) == 0)
                     continue;
 
                 buffer.Add(TargetInfo.CreateBug(

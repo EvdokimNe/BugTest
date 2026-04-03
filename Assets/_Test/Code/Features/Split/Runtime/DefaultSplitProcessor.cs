@@ -9,10 +9,10 @@ namespace _Test.Code.Features.Split.Runtime
     {
         public Type ConfigType => typeof(DefaultSplit);
 
-        public void Resolve(BugAgentContainer bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind)
+        public void Resolve(ISplitBehavior behavior, BugAgentContainer bug, out BugKind firstChildKind, out BugKind secondChildKind)
         {
-            firstChildKind = bug.RuntimeData.Kind;
-            secondChildKind = bug.RuntimeData.Kind;
+            firstChildKind = bug.Kind;
+            secondChildKind = bug.Kind;
         }
     }
 }

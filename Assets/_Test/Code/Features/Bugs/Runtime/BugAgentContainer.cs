@@ -1,14 +1,15 @@
 using _Test.Code.Features.Bugs.Models;
 using _Test.Code.Features.Bugs.Scene;
 using _Test.Code.Features.Bugs.States;
-using _Test.Code.Features.Targeting.Contracts;
 using _Test.Code.Features.Targeting.Models;
 using uPools;
+
 namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugAgentContainer
     {
         public InternalIntId Id { get; }
+        public BugKind Kind { get; }
         public BugView View { get; }
         public RuntimeData RuntimeData { get; }
         public ObjectPool<BugView> Pool { get; }
@@ -18,6 +19,7 @@ namespace _Test.Code.Features.Bugs.Runtime
 
         public BugAgentContainer(
             InternalIntId id,
+            BugKind kind,
             BugView view,
             RuntimeData runtimeData,
             ObjectPool<BugView> pool,
@@ -25,6 +27,7 @@ namespace _Test.Code.Features.Bugs.Runtime
             BugStateMachine stateMachine)
         {
             Id = id;
+            Kind = kind;
             View = view;
             RuntimeData = runtimeData;
             Pool = pool;

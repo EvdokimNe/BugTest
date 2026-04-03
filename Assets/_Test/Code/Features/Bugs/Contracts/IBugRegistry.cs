@@ -5,7 +5,6 @@ namespace _Test.Code.Features.Bugs.Contracts
 {
     public interface IBugRegistry
     {
-        int Count { get; }
         IReadOnlyCollection<BugAgentContainer> Bugs { get; }
         IReadOnlyList<BugAgentContainer> Snapshot { get; }
 

@@ -1,7 +1,6 @@
 using _Test.Code.Features.Bugs.Contracts;
 using _Test.Code.Features.Bugs.Runtime;
 using _Test.Code.Features.ResourceSpawn.Contracts;
-using _Test.Code.Features.ResourceSpawn.Models;
 using _Test.Code.Features.StateMachine.Runtime;
 using _Test.Code.Features.Targeting;
 using _Test.Code.Features.Targeting.Contracts;

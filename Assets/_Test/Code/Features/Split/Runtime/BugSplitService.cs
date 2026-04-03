@@ -41,28 +41,18 @@ namespace _Test.Code.Features.Split.Runtime
 
         private void Split(BugAgentContainer bug)
         {
-            var populationCount = _bugRegistry.Count;
+            if (!_splitResolverService.TryResolve(bug, out var firstChildKind, out var secondChildKind))
+            {
+                return;
+            }
+            
             var origin = bug.View.transform.position;
             var splitPositions = CreateSplitPositions(origin);
-            _splitResolverService.Resolve(bug, populationCount, out var firstChildKind, out var secondChildKind);
-
+                
             _bugDespawnService.Despawn(bug.Id, publishDeathEvent: false);
 
-            SpawnByKind(firstChildKind, splitPositions.Item1);
-            SpawnByKind(secondChildKind, splitPositions.Item2);
-        }
-
-        private void SpawnByKind(BugKind bugKind, Vector3 position)
-        {
-            switch (bugKind)
-            {
-                case BugKind.Worker:
-                    _bugSpawnService.SpawnWorker(position);
-                    break;
-                case BugKind.Predator:
-                    _bugSpawnService.SpawnPredator(position);
-                    break;
-            }
+            _bugSpawnService.SpawnByKind(firstChildKind, splitPositions.Item1);
+            _bugSpawnService.SpawnByKind(secondChildKind, splitPositions.Item2);
         }
 
         private (Vector3, Vector3) CreateSplitPositions(Vector3 origin)

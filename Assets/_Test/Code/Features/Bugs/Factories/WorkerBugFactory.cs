@@ -63,7 +63,7 @@ namespace _Test.Code.Features.Bugs.Factories
                 },
                 new RandomTargetSelectionStrategy());
 
-            var runtimeData = new RuntimeData(BugKind.Worker, _settings);
+            var runtimeData = new RuntimeData(_settings);
             var movementStrategy = _movementStrategyFactory.Create(runtimeData.Settings.MoveData);
             var stateContext = new BugStateContext(view, runtimeData, movementStrategy);
 
@@ -74,7 +74,7 @@ namespace _Test.Code.Features.Bugs.Factories
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agent = new BugAgentContainer(bugId, view, runtimeData, pool, stateContext, stateMachine);
+            var agent = new BugAgentContainer(bugId,BugKind.Worker, view, runtimeData, pool, stateContext, stateMachine);
             //циклическая зависимость
             stateContext.Owner = agent;
             return agent;

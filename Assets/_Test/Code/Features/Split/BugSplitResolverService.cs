@@ -17,19 +17,23 @@ namespace _Test.Code.Features.Split
             }
         }
 
-        public void Resolve(BugAgentContainer bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind)
+        public bool TryResolve(BugAgentContainer bug, out BugKind firstChildKind, out BugKind secondChildKind)
         {
-            firstChildKind = bug.RuntimeData.Kind;
-            secondChildKind = bug.RuntimeData.Kind;
-
-            var config = bug.RuntimeData.Settings.SplitBehavior;
-            if (config == null)
-                return;
-
-            if (_processors.TryGetValue(config.GetType(), out var processor))
+            firstChildKind = BugKind.None;
+            secondChildKind = BugKind.None;
+            
+            var behaviorConfig = bug.RuntimeData.Settings.SplitBehavior;
+            if (behaviorConfig == null)
             {
-                processor.Resolve(bug, populationCount, out firstChildKind, out secondChildKind);
+                return false;
             }
+
+            if (_processors.TryGetValue(behaviorConfig.GetType(), out var processor))
+            {
+                processor.Resolve(behaviorConfig, bug, out firstChildKind, out secondChildKind);
+            }
+
+            return true;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace _Test.Code.Features.Colony
 
         public void Tick()
         {
-            if (_bugRegistry.Count != 0)
+            if (_bugRegistry.Bugs.Count != 0)
                 return;
 
             var spawnPosition = _sceneContainer.SpawnPoint != null ? _sceneContainer.SpawnPoint.position : Vector3.zero;

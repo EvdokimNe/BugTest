@@ -7,8 +7,6 @@ namespace _Test.Code.Features.Bugs.Runtime
     {
         private readonly Dictionary<InternalIntId, BugAgentContainer> _bugs = new Dictionary<InternalIntId, BugAgentContainer>(64);
         private readonly List<BugAgentContainer> _snapshot = new(64);
-
-        public int Count => _bugs.Count;
         public IReadOnlyCollection<BugAgentContainer> Bugs => _bugs.Values;
         public IReadOnlyList<BugAgentContainer> Snapshot => _snapshot;
 

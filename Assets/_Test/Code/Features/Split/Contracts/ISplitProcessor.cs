@@ -6,6 +6,6 @@ namespace _Test.Code.Features.Split.Contracts
     public interface ISplitProcessor
     {
         Type ConfigType { get; }
-        void Resolve(BugAgentContainer bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind);
+        void Resolve(ISplitBehavior behavior, BugAgentContainer bug, out BugKind firstChildKind, out BugKind secondChildKind);
     }
 }

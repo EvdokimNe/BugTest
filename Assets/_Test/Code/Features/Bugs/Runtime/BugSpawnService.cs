@@ -1,5 +1,6 @@
 using _Test.Code.Features.Bugs.Contracts;
 using _Test.Code.Features.Bugs.Factories;
+using _Test.Code.Features.Bugs.Models;
 using UnityEngine;
 namespace _Test.Code.Features.Bugs.Runtime
 {
@@ -20,6 +21,16 @@ namespace _Test.Code.Features.Bugs.Runtime
             _bugRegistry = bugRegistry;
             _workerBugFactory = workerBugFactory;
             _predatorBugFactory = predatorBugFactory;
+        }
+
+        public BugAgentContainer SpawnByKind(BugKind bugKind, Vector3 position)
+        {
+            return bugKind switch
+            {
+                BugKind.Worker => SpawnWorker(position),
+                BugKind.Predator => SpawnPredator(position),
+                _ => null
+            };
         }
 
         public BugAgentContainer SpawnWorker(Vector3 position)

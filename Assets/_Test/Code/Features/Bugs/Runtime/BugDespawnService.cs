@@ -21,7 +21,7 @@ namespace _Test.Code.Features.Bugs.Runtime
 
             if (publishDeathEvent)
             {
-                _deathEventStream.BugDied.OnNext(bug.RuntimeData.Kind);
+                _deathEventStream.BugDied.OnNext(bug.Kind);
             }
 
             bug.RuntimeData.IsAlive = false;

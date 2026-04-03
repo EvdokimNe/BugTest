@@ -1,5 +1,6 @@
 using System;
 using _Test.Code.Features.Bugs.Configs;
+using _Test.Code.Features.Bugs.Contracts;
 using _Test.Code.Features.Bugs.Models;
 using _Test.Code.Features.Bugs.Runtime;
 using _Test.Code.Features.Split.Contracts;
@@ -9,21 +10,24 @@ namespace _Test.Code.Features.Split.Runtime
 {
     public sealed class SplitWithMutationChanceProcessor : ISplitProcessor
     {
+        private readonly IBugRegistry _bugRegistry;
         public Type ConfigType => typeof(SplitWithMutationChance);
 
-        public void Resolve(BugAgentContainer bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind)
+        public SplitWithMutationChanceProcessor(IBugRegistry bugRegistry)
         {
-            firstChildKind = bug.RuntimeData.Kind;
-            secondChildKind = bug.RuntimeData.Kind;
+            _bugRegistry = bugRegistry;
 
-            if (bug.RuntimeData.Kind != BugKind.Worker)
-                return;
+        }
 
-            if (bug.RuntimeData.Settings.SplitBehavior is not SplitWithMutationChance config)
-                return;
+        public void Resolve(ISplitBehavior behavior, BugAgentContainer bug, out BugKind firstChildKind, out BugKind secondChildKind)
+        {
+            var splitWithMutation = behavior as SplitWithMutationChance;
+            
+            firstChildKind = bug.Kind;
+            secondChildKind = bug.Kind;
 
-            var shouldMutate = populationCount > config.MutationPopulationThreshold &&
-                               Random.value <= config.MutationChance;
+            var shouldMutate = _bugRegistry.Bugs.Count > splitWithMutation.MutationPopulationThreshold &&
+                               Random.value <= splitWithMutation.MutationChance;
 
             if (shouldMutate)
             {
