@@ -7,6 +7,6 @@ namespace _Test.Code.Features.Targeting.Contracts
     public interface ITargetSelectionStrategyProcessor
     {
         Type StrategyType { get; }
-        bool TrySelect(ITargetSelectionStrategy strategy, BugAgent requester, IReadOnlyList<TargetInfo> candidates, out TargetInfo target);
+        bool TrySelect(ITargetSelectionStrategy strategy, BugAgentContainer requester, IReadOnlyList<TargetInfo> candidates, out TargetInfo target);
     }
 }

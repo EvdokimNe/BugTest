@@ -50,7 +50,7 @@ namespace _Test.Code.Features.Bugs.Factories
             _bugConsumeService = bugConsumeService;
         }
 
-        public BugAgent Create(InternalIntId bugId, Vector3 position)
+        public BugAgentContainer Create(InternalIntId bugId, Vector3 position)
         {
             var pool = _bugPoolProvider.GetOrCreate(_sceneContainer.WorkerPrefab, nameof(BugKind.Worker));
             var view = pool.Rent();
@@ -74,7 +74,7 @@ namespace _Test.Code.Features.Bugs.Factories
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agent = new BugAgent(bugId, view, runtimeData, runtimeData.TargetSelector, pool, null, stateContext, stateMachine);
+            var agent = new BugAgentContainer(bugId, view, runtimeData, runtimeData.EatingTargetSelector, pool, null, stateContext, stateMachine);
             stateContext.Owner = agent;
             return agent;
         }

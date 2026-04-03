@@ -20,7 +20,7 @@ namespace _Test.Code.Features.Bugs.Runtime
             _bugDespawnService = bugDespawnService;
         }
 
-        public bool TryConsume(BugAgent consumer, TargetInfo target)
+        public bool TryConsume(BugAgentContainer consumer, TargetInfo target)
         {
             switch (target.Kind)
             {
@@ -33,7 +33,7 @@ namespace _Test.Code.Features.Bugs.Runtime
             }
         }
 
-        private bool TryConsumeResource(BugAgent consumer, InternalIntId targetId)
+        private bool TryConsumeResource(BugAgentContainer consumer, InternalIntId targetId)
         {
             if (!_resourceManager.TryGet(targetId, out var resource))
                 return false;
@@ -45,7 +45,7 @@ namespace _Test.Code.Features.Bugs.Runtime
             return true;
         }
 
-        private bool TryConsumeBug(BugAgent consumer, InternalIntId targetId)
+        private bool TryConsumeBug(BugAgentContainer consumer, InternalIntId targetId)
         {
             if (!_bugRegistry.TryGet(targetId, out var targetBug))
                 return false;

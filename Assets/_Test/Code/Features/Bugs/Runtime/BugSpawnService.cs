@@ -22,14 +22,14 @@ namespace _Test.Code.Features.Bugs.Runtime
             _predatorBugFactory = predatorBugFactory;
         }
 
-        public BugAgent SpawnWorker(Vector3 position)
+        public BugAgentContainer SpawnWorker(Vector3 position)
         {
             var bug = _workerBugFactory.Create(_bugIdProvider.Create(), position);
             _bugRegistry.Add(bug);
             return bug;
         }
 
-        public BugAgent SpawnPredator(Vector3 position)
+        public BugAgentContainer SpawnPredator(Vector3 position)
         {
             var bug = _predatorBugFactory.Create(_bugIdProvider.Create(), position);
             _bugRegistry.Add(bug);

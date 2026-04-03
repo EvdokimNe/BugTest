@@ -6,35 +6,35 @@ using _Test.Code.Features.Targeting.Models;
 using uPools;
 namespace _Test.Code.Features.Bugs.Runtime
 {
-    public sealed class BugAgent
+    public sealed class BugAgentContainer
     {
         public InternalIntId Id { get; }
         public BugView View { get; }
         public RuntimeData RuntimeData { get; }
-        public ITargetSelector TargetSelector { get; }
         public ObjectPool<BugView> Pool { get; }
-        public BugLifetimeComponent LifetimeComponent { get; }
+        public BugLifetimeComponent LifetimeComponent { get; private set; }
         public BugStateContext StateContext { get; }
         public BugStateMachine StateMachine { get; }
 
-        public BugAgent(
+        public BugAgentContainer(
             InternalIntId id,
             BugView view,
             RuntimeData runtimeData,
-            ITargetSelector targetSelector,
             ObjectPool<BugView> pool,
-            BugLifetimeComponent lifetimeComponent,
             BugStateContext stateContext,
             BugStateMachine stateMachine)
         {
             Id = id;
             View = view;
             RuntimeData = runtimeData;
-            TargetSelector = targetSelector;
             Pool = pool;
-            LifetimeComponent = lifetimeComponent;
             StateContext = stateContext;
             StateMachine = stateMachine;
+        }
+        
+        public void AttachLifetime(BugLifetimeComponent lifetimeComponent)
+        {
+            LifetimeComponent = lifetimeComponent;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace _Test.Code.Features.Split.Runtime
             }
         }
 
-        private void Split(BugAgent bug)
+        private void Split(BugAgentContainer bug)
         {
             var populationCount = _bugRegistry.Count;
             var origin = bug.View.transform.position;

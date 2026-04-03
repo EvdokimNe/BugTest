@@ -54,13 +54,13 @@ namespace _Test.Code.Features.Bugs.Factories
             _objectResolver = objectResolver;
         }
 
-        public BugAgent Create(InternalIntId bugId, Vector3 position)
+        public BugAgentContainer Create(InternalIntId bugId, Vector3 position)
         {
             var pool = _bugPoolProvider.GetOrCreate(_sceneContainer.PredatorPrefab, nameof(BugKind.Predator));
             var view = pool.Rent();
             view.transform.position = position;
 
-            var targetSelector = new ConfiguredTargetSelector(
+            var eatingTargetSelector = new ConfiguredTargetSelector(
                 new List<ITargetCollector>
                 {
                     new ResourceTargetCollector(),
@@ -68,13 +68,13 @@ namespace _Test.Code.Features.Bugs.Factories
                 },
                 new RandomTargetSelectionStrategy());
 
-            var runtimeData = new RuntimeData(BugKind.Predator, _settings, targetSelector);
+            var runtimeData = new RuntimeData(BugKind.Predator, _settings);
             var movementStrategy = _movementStrategyFactory.Create(runtimeData.Settings.MoveData);
             var stateContext = new BugStateContext(view, runtimeData, movementStrategy);
 
             var states = new List<IState>
             {
-                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService),
+                new EatingState(_targetSelectorService, _resourceManager, _bugRegistry, _bugConsumeService, eatingTargetSelector),
                 new IdleState()
             };
 
@@ -82,9 +82,13 @@ namespace _Test.Code.Features.Bugs.Factories
             var lifetimeComponent = new BugLifetimeComponent(lifeTimer, _settings.LifetimeSeconds);
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agent = new BugAgent(bugId, view, runtimeData, runtimeData.TargetSelector, pool, lifetimeComponent, stateContext, stateMachine);
-            stateContext.Owner = agent;
-            return agent;
+            var agentContainer = new BugAgentContainer(bugId, view, runtimeData, pool, stateContext, stateMachine);
+            agentContainer.AttachLifetime(lifetimeComponent);
+            
+            //циклическая зависимость
+            stateContext.Owner = agentContainer;
+            
+            return agentContainer;
         }
     }
 }

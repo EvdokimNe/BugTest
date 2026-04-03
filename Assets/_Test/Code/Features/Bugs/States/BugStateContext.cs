@@ -7,7 +7,7 @@ namespace _Test.Code.Features.Bugs.States
 {
     public sealed class BugStateContext : IStateContext, IStateAccessor
     {
-        public BugAgent Owner { get; set; }
+        public BugAgentContainer Owner { get; set; }
         public BugView View { get; }
         public Models.RuntimeData RuntimeData { get; }
         public IMovementStrategy MovementStrategy { get; }

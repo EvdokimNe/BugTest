@@ -26,7 +26,7 @@ namespace _Test.Code.Features.Targeting
             }
         }
 
-        public bool TrySelect(ITargetSelector selector, BugAgent requester, out TargetInfo target)
+        public bool TrySelect(ITargetSelector selector, BugAgentContainer requester, out TargetInfo target)
         {
             target = null;
             if (selector == null || selector.SelectionStrategy == null)

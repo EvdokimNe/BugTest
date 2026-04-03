@@ -11,7 +11,7 @@ namespace _Test.Code.Features.Split.Runtime
     {
         public Type ConfigType => typeof(SplitWithMutationChance);
 
-        public void Resolve(BugAgent bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind)
+        public void Resolve(BugAgentContainer bug, int populationCount, out BugKind firstChildKind, out BugKind secondChildKind)
         {
             firstChildKind = bug.RuntimeData.Kind;
             secondChildKind = bug.RuntimeData.Kind;

@@ -4,6 +4,7 @@ using _Test.Code.Features.ResourceSpawn.Contracts;
 using _Test.Code.Features.ResourceSpawn.Models;
 using _Test.Code.Features.StateMachine.Runtime;
 using _Test.Code.Features.Targeting;
+using _Test.Code.Features.Targeting.Contracts;
 using _Test.Code.Features.Targeting.Models;
 namespace _Test.Code.Features.Bugs.States
 {
@@ -13,6 +14,7 @@ namespace _Test.Code.Features.Bugs.States
         private readonly IResourceManager _resourceManager;
         private readonly IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
+        private readonly ITargetSelector _targetSelector;
 
         private readonly EatingStateContext _stateContext = new();
 
@@ -20,12 +22,15 @@ namespace _Test.Code.Features.Bugs.States
             TargetSelectorService targetSelectorService,
             IResourceManager resourceManager,
             IBugRegistry bugRegistry,
-            BugConsumeService bugConsumeService)
+            BugConsumeService bugConsumeService, 
+            ITargetSelector targetSelector
+            )
         {
             _targetSelectorService = targetSelectorService;
             _resourceManager = resourceManager;
             _bugRegistry = bugRegistry;
             _bugConsumeService = bugConsumeService;
+            _targetSelector = targetSelector;
         }
 
         public override bool ShouldBeActive()
@@ -47,7 +52,6 @@ namespace _Test.Code.Features.Bugs.States
 
             if (!IsTargetValid(_stateContext.CurrentTarget))
             {
-                ReleaseCurrentTarget();
                 RequestExit();
                 return;
             }
@@ -67,21 +71,8 @@ namespace _Test.Code.Features.Bugs.States
 
         private bool TryAcquireTarget()
         {
-            if (!_targetSelectorService.TrySelect(Context.Owner.TargetSelector, Context.Owner, out var target))
+            if (!_targetSelectorService.TrySelect(_targetSelector, Context.Owner, out var target))
                 return false;
-
-            /*
-            if (target.Kind == TargetKind.Resource)
-            {
-                if (!_resourceManager.TryGet(new ResourceInstanceId(target.Id.Value), out var resource))
-                    return false;
-
-                if (resource.State != ResourceState.Available)
-                    return false;
-
-                resource.State = ResourceState.Reserved;
-            }
-            */
 
             _stateContext.CurrentTarget = target;
             return true;
@@ -98,18 +89,6 @@ namespace _Test.Code.Features.Bugs.States
                 TargetKind.Bug => _bugRegistry.TryGet(target.Id, out var bug) && bug.RuntimeData.IsAlive,
                 _ => false
             };
-        }
-
-        private void ReleaseCurrentTarget()
-        {
-            if (_stateContext.CurrentTarget?.Kind == TargetKind.Resource &&
-                _resourceManager.TryGet(_stateContext.CurrentTarget.Id, out var resource) &&
-                resource.State == ResourceState.Reserved)
-            {
-                resource.State = ResourceState.Available;
-            }
-
-            _stateContext.Clear();
         }
     }
 }

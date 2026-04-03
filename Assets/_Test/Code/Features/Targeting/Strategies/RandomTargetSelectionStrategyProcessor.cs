@@ -11,7 +11,7 @@ namespace _Test.Code.Features.Targeting.Strategies
     {
         public Type StrategyType => typeof(RandomTargetSelectionStrategy);
 
-        public bool TrySelect(ITargetSelectionStrategy strategy, BugAgent requester, IReadOnlyList<TargetInfo> candidates, out TargetInfo target)
+        public bool TrySelect(ITargetSelectionStrategy strategy, BugAgentContainer requester, IReadOnlyList<TargetInfo> candidates, out TargetInfo target)
         {
             if (candidates == null || candidates.Count == 0)
             {
@@ -20,6 +20,7 @@ namespace _Test.Code.Features.Targeting.Strategies
             }
 
             target = candidates[Random.Range(0, candidates.Count)];
+            
             return true;
         }
     }

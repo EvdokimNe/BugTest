@@ -18,7 +18,7 @@ namespace _Test.Code.Features.Targeting.Collectors
             _resourceManager = resourceManager;
         }
 
-        public void Collect(ITargetCollector collector, BugAgent requester, List<TargetInfo> buffer)
+        public void Collect(ITargetCollector collector, BugAgentContainer requester, List<TargetInfo> buffer)
         {
             foreach (var resource in _resourceManager.Resources)
             {

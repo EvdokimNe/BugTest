@@ -18,7 +18,7 @@ namespace _Test.Code.Features.Targeting.Collectors
             _bugRegistry = bugRegistry;
         }
 
-        public void Collect(ITargetCollector collector, BugAgent requester, List<TargetInfo> buffer)
+        public void Collect(ITargetCollector collector, BugAgentContainer requester, List<TargetInfo> buffer)
         {
             if (collector is not BugTargetCollector bugCollector || bugCollector.TargetKindsMask == BugKind.None)
                 return;

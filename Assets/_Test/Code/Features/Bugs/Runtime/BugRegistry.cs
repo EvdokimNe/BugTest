@@ -5,12 +5,12 @@ namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugRegistry : IBugRegistry
     {
-        private readonly Dictionary<InternalIntId, BugAgent> _bugs = new Dictionary<InternalIntId, BugAgent>(64);
-        private readonly List<BugAgent> _snapshot = new(64);
+        private readonly Dictionary<InternalIntId, BugAgentContainer> _bugs = new Dictionary<InternalIntId, BugAgentContainer>(64);
+        private readonly List<BugAgentContainer> _snapshot = new(64);
 
         public int Count => _bugs.Count;
-        public IReadOnlyCollection<BugAgent> Bugs => _bugs.Values;
-        public IReadOnlyList<BugAgent> Snapshot => _snapshot;
+        public IReadOnlyCollection<BugAgentContainer> Bugs => _bugs.Values;
+        public IReadOnlyList<BugAgentContainer> Snapshot => _snapshot;
 
         public void BuildSnapshot()
         {
@@ -22,12 +22,12 @@ namespace _Test.Code.Features.Bugs.Runtime
             }
         }
 
-        public void Add(BugAgent bug)
+        public void Add(BugAgentContainer bug)
         {
             _bugs[bug.Id] = bug;
         }
 
-        public bool TryGet(InternalIntId bugId, out BugAgent bug)
+        public bool TryGet(InternalIntId bugId, out BugAgentContainer bug)
         {
             return _bugs.TryGetValue(bugId, out bug);
         }

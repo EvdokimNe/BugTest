@@ -6,12 +6,12 @@ namespace _Test.Code.Features.Bugs.Contracts
     public interface IBugRegistry
     {
         int Count { get; }
-        IReadOnlyCollection<BugAgent> Bugs { get; }
-        IReadOnlyList<BugAgent> Snapshot { get; }
+        IReadOnlyCollection<BugAgentContainer> Bugs { get; }
+        IReadOnlyList<BugAgentContainer> Snapshot { get; }
 
         void BuildSnapshot();
-        void Add(BugAgent bug);
-        bool TryGet(InternalIntId bugId, out BugAgent bug);
+        void Add(BugAgentContainer bug);
+        bool TryGet(InternalIntId bugId, out BugAgentContainer bug);
         void Remove(InternalIntId bugId);
     }
 }
