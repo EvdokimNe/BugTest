@@ -1,5 +1,6 @@
 using _Test.Code.Features.ResourceSpawn.Scene;
 using _Test.Code.Features.Targeting.Models;
+using _Test.Code.Shared;
 using UnityEngine;
 using uPools;
 namespace _Test.Code.Features.ResourceSpawn.Models

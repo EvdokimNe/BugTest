@@ -22,7 +22,7 @@ namespace _Test.Code.Features.Split
             firstChildKind = BugKind.None;
             secondChildKind = BugKind.None;
             
-            var behaviorConfig = bug.RuntimeData.Settings.SplitBehavior;
+            var behaviorConfig = bug.SplitBehavior;
             if (behaviorConfig == null)
             {
                 return false;

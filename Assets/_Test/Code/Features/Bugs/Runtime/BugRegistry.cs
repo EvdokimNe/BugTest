@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Test.Code.Features.Bugs.Contracts;
 using _Test.Code.Features.Targeting.Models;
+using _Test.Code.Shared;
 namespace _Test.Code.Features.Bugs.Runtime
 {
     public sealed class BugRegistry : IBugRegistry

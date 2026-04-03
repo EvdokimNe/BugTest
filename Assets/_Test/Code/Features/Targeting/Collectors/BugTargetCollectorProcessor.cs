@@ -5,6 +5,7 @@ using _Test.Code.Features.Bugs.Models;
 using _Test.Code.Features.Bugs.Runtime;
 using _Test.Code.Features.Targeting.Contracts;
 using _Test.Code.Features.Targeting.Models;
+using _Test.Code.Shared;
 namespace _Test.Code.Features.Targeting.Collectors
 {
     public sealed class BugTargetCollectorProcessor : ITargetCollectorProcessor

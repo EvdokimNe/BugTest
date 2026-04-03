@@ -13,6 +13,7 @@ using _Test.Code.Features.Targeting.Contracts;
 using _Test.Code.Features.Targeting.Models;
 using _Test.Code.Features.Targeting.Selectors;
 using _Test.Code.Features.Targeting.Strategies;
+using _Test.Code.Shared;
 using UnityEngine;
 namespace _Test.Code.Features.Bugs.Factories
 {
@@ -26,11 +27,11 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly Contracts.IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
 
-        private readonly BugSettings _settings = new(
+        private readonly BugSettings _defaultSettings = new BugSettings(
             new BaseMoveData(MovementType.GroundXZ, 5f),
             splitSatiety: 2,
             lifetimeSeconds: -1f,
-            splitBehavior: new SplitWithMutationChance(10, 0.1f));
+            splitBehavior: new SplitWithMutationChance(2,10, 0.1f));
 
         public WorkerBugFactory(
             BugSceneContainer sceneContainer,
@@ -63,8 +64,8 @@ namespace _Test.Code.Features.Bugs.Factories
                 },
                 new RandomTargetSelectionStrategy());
 
-            var runtimeData = new RuntimeData(_settings);
-            var movementStrategy = _movementStrategyFactory.Create(runtimeData.Settings.MoveData);
+            var runtimeData = new RuntimeData();
+            var movementStrategy = _movementStrategyFactory.Create(_defaultSettings.MoveData);
             var stateContext = new BugStateContext(view, runtimeData, movementStrategy);
 
             var states = new List<IState>
@@ -74,10 +75,13 @@ namespace _Test.Code.Features.Bugs.Factories
             };
 
             var stateMachine = new BugStateMachine(stateContext, states);
-            var agent = new BugAgentContainer(bugId,BugKind.Worker, view, runtimeData, pool, stateContext, stateMachine);
+            var agentContainer = new BugAgentContainer(bugId,BugKind.Worker, view, runtimeData, pool, stateContext, stateMachine);
+            
+            agentContainer.AttachSplitBehavior(_defaultSettings.SplitBehavior);
+            
             //циклическая зависимость
-            stateContext.Owner = agent;
-            return agent;
+            stateContext.Owner = agentContainer;
+            return agentContainer;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace _Test.Code.Features.Targeting.Models
+namespace _Test.Code.Shared
 {
     public readonly struct InternalStringId : IEquatable<InternalStringId>
     {

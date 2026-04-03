@@ -10,12 +10,13 @@ using _Test.Code.Features.StateMachine.Contracts;
 using _Test.Code.Features.Targeting;
 using _Test.Code.Features.Targeting.Collectors;
 using _Test.Code.Features.Targeting.Contracts;
-using _Test.Code.Features.Targeting.Models;
 using _Test.Code.Features.Targeting.Selectors;
 using _Test.Code.Features.Targeting.Strategies;
 using _Test.Code.Features.Timers.Contracts;
+using _Test.Code.Shared;
 using UnityEngine;
 using VContainer;
+
 namespace _Test.Code.Features.Bugs.Factories
 {
     public sealed class PredatorBugFactory
@@ -27,12 +28,13 @@ namespace _Test.Code.Features.Bugs.Factories
         private readonly IResourceManager _resourceManager;
         private readonly Contracts.IBugRegistry _bugRegistry;
         private readonly BugConsumeService _bugConsumeService;
-        private readonly BugSettings _settings = new(
+        private readonly IObjectResolver _objectResolver;
+        
+        private readonly BugSettings _defaultSettings = new BugSettings(
             new BaseMoveData(MovementType.GroundXZ, 7f),
             splitSatiety: 3,
             lifetimeSeconds: 10f,
-            splitBehavior: new DefaultSplit());
-        private readonly IObjectResolver _objectResolver;
+            splitBehavior: new DefaultSplit(3));
 
         public PredatorBugFactory(
             BugSceneContainer sceneContainer,
@@ -68,8 +70,8 @@ namespace _Test.Code.Features.Bugs.Factories
                 },
                 new RandomTargetSelectionStrategy());
 
-            var runtimeData = new RuntimeData(_settings);
-            var movementStrategy = _movementStrategyFactory.Create(runtimeData.Settings.MoveData);
+            var runtimeData = new RuntimeData();
+            var movementStrategy = _movementStrategyFactory.Create(_defaultSettings.MoveData);
             var stateContext = new BugStateContext(view, runtimeData, movementStrategy);
 
             var states = new List<IState>
@@ -78,12 +80,14 @@ namespace _Test.Code.Features.Bugs.Factories
                 new IdleState()
             };
 
-            var lifeTimer = _objectResolver.Resolve<ITimer>();
-            var lifetimeComponent = new BugLifetimeComponent(lifeTimer, _settings.LifetimeSeconds);
-
             var stateMachine = new BugStateMachine(stateContext, states);
             var agentContainer = new BugAgentContainer(bugId, BugKind.Predator, view, runtimeData, pool, stateContext, stateMachine);
+            
+            var lifeTimer = _objectResolver.Resolve<ITimer>();
+            var lifetimeComponent = new BugLifetimeComponent(lifeTimer, _defaultSettings.LifetimeSeconds);
             agentContainer.AttachLifetime(lifetimeComponent);
+
+            agentContainer.AttachSplitBehavior(_defaultSettings.SplitBehavior);
 
             //циклическая зависимость
             stateContext.Owner = agentContainer;

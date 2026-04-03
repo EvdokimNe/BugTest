@@ -32,7 +32,7 @@ namespace _Test.Code.Features.Split.Runtime
                 if (!bug.RuntimeData.IsAlive)
                     continue;
 
-                if (bug.RuntimeData.Satiety < bug.RuntimeData.Settings.SplitSatiety)
+                if (bug.RuntimeData.Satiety < bug.SplitBehavior.SplitSatiety)
                     continue;
 
                 Split(bug);

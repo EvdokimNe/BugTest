@@ -1,3 +1,4 @@
+using _Test.Code.Shared;
 using UnityEngine;
 namespace _Test.Code.Features.Targeting.Models
 {
